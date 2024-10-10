@@ -18,4 +18,20 @@ document.getElementById('cltvForm').addEventListener('submit', function(e) {
 
     // Display the result
     document.getElementById('cltvResult').textContent = `$${cltv.toFixed(2)}`;
+
+    // Generate a summary message
+    const summaryMessage = `A customer who sticks around for ${customerLifespan} years, making ${purchaseFrequency} purchases per year, is worth approximately $${cltv.toFixed(2)} to your business over their lifetime.`;
+
+    // Insert the summary message into the DOM
+    const resultDiv = document.getElementById('result');
+    let summaryParagraph = document.getElementById('cltvSummary');
+    
+    if (!summaryParagraph) {
+        summaryParagraph = document.createElement('p');
+        summaryParagraph.id = 'cltvSummary';
+        summaryParagraph.classList.add('text-center', 'mt-3');
+        resultDiv.appendChild(summaryParagraph);
+    }
+    
+    summaryParagraph.textContent = summaryMessage;
 });
