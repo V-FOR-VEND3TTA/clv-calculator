@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CLTV Calculator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <style>
+    .info-icon {
+      margin-left: 5px;
+      color: #007bff;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <div class="container mt-5">
+    <div class="card shadow-lg">
+      <div class="card-body">
+        <h2 class="card-title text-center">Customer Lifetime Value (CLTV) Calculator</h2>
+        <form id="cltvForm">
+          <div class="mb-3">
+            <label for="averageOrderValue" class="form-label">Average Order Value ($)
+              <i class="bi bi-info-circle-fill info-icon" data-bs-toggle="tooltip" data-bs-placement="right" title="The average amount a customer spends per purchase."></i>
+            </label>
+            <input type="number" class="form-control" id="averageOrderValue" placeholder="Enter average order value" required>
+          </div>
+          <div class="mb-3">
+            <label for="purchaseFrequency" class="form-label">Purchase Frequency (per year)
+              <i class="bi bi-info-circle-fill info-icon" data-bs-toggle="tooltip" data-bs-placement="right" title="The number of times a customer buys from you in a year."></i>
+            </label>
+            <input type="number" class="form-control" id="purchaseFrequency" placeholder="Enter purchase frequency" required>
+          </div>
+          <div class="mb-3">
+            <label for="customerLifespan" class="form-label">Customer Lifespan (years)
+              <i class="bi bi-info-circle-fill info-icon" data-bs-toggle="tooltip" data-bs-placement="right" title="The number of years a customer continues to buy from you."></i>
+            </label>
+            <input type="number" class="form-control" id="customerLifespan" placeholder="Enter customer lifespan" required>
+          </div>
+          <div class="mb-3">
+            <label for="profitMargin" class="form-label">Profit Margin (%)
+              <i class="bi bi-info-circle-fill info-icon" data-bs-toggle="tooltip" data-bs-placement="right" title="The percentage of profit you make on each sale."></i>
+            </label>
+            <input type="number" class="form-control" id="profitMargin" placeholder="Enter profit margin percentage" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Calculate CLTV</button>
+        </form>
+        <div class="mt-4" id="result">
+          <h4 class="text-center">Customer Lifetime Value: <span id="cltvResult">$0.00</span></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Initialize Bootstrap tooltips
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+  </script>
+</body>
+</html>
